@@ -10,13 +10,15 @@
       <ion-title size="large">Libros</ion-title>
     </ion-toolbar>
   </ion-header>
-  <div  style="width: 100%; display: grid; grid-template-columns: 1fr 1fr;">
-      <ion-card *ngFor="let book of bookNames" style="width: 100%; text-align: center;">
-        <img alt="Silhouette of mountains" src='https://robohash.org/{{book}}' />
-        <ion-card-header>
-          <ion-card-title>{{book}}</ion-card-title>
-        </ion-card-header>
-      </ion-card>
+
+  <div style="width: 100%; display: grid; grid-template-columns: repeat(auto-fill, minmax(250px, 1fr)); gap: 16px;">
+    <ion-card *ngFor="let book of bookNames" style="width: 100%; text-align: center;">
+      <img [src]="'https://robohash.org/' + book" alt="Imagen del libro" />
+      <ion-card-header>
+        <ion-card-title>{{ book }}</ion-card-title>
+      </ion-card-header>
+    </ion-card>
   </div>
-  <ion-button expand="full">Guardar en Firebase</ion-button>
+
+  <ion-button expand="full" (click)="saveFirebase()">Guardar en Firebase</ion-button>
 </ion-content>

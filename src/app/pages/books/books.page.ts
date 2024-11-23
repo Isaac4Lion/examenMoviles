@@ -45,8 +45,8 @@ export class BooksPage implements OnInit {
     }
   }
   async saveFirebase() {
-    const datos = []
-    this.bookNames.forEach(book => {
+      const datos: any[] = []    
+      this.bookNames.forEach(book => {
       const url = `https://robohash.org/${book}`
       const objeto = {url: url, nombre: book}
       datos.push(objeto)
